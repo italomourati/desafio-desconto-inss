@@ -26,8 +26,8 @@ class PreponentsController < ApplicationController
       }
     end
 
-    @labels = @salary_report.map { |report| report[:range] }
-    @counts = @salary_report.map { |report| report[:count] }
+    @labels = @salary_report.pluck(:range)
+    @counts = @salary_report.pluck(:count)
   end
 
   def update_salary_only
@@ -93,10 +93,7 @@ class PreponentsController < ApplicationController
   private
 
   def set_preponent
-    puts 'Setting preponent'
-    puts params[:id]
     @preponent = Preponent.find(params[:id])
-    puts @preponent
   end
 
   def preponent_params
