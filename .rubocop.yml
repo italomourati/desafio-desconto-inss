@@ -17,6 +17,7 @@ AllCops:
     - scripts/**/*
     - Gemfile
     - spec/support/*
+    - test/**/*
   TargetRubyVersion: 3.2.2
   TargetRailsVersion: 7.1.3
 
@@ -60,11 +61,8 @@ Metrics/ModuleLength:
 Naming/MethodParameterName:
   Enabled: false
 
-Style/DateTime:
-  Enabled: false
-
 Style/IfUnlessModifier:
   Enabled: false
 
-Style/FrozenStringLiteralComment:
+Rails/I18nLocaleTexts:
   Enabled: false

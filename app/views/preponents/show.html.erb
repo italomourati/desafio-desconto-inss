@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @preponent %>
+
+<div>
+  <%= link_to "Edit this preponent", edit_preponent_path(@preponent) %> |
+  <%= link_to "Back to preponents", preponents_path %>
+
+  <%= button_to "Destroy this preponent", @preponent, method: :delete %>
+</div>

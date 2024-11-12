@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Preponents</h1>
+
+<div id="preponents">
+  <% @preponents.each do |preponent| %>
+    <%= render preponent %>
+    <p>
+      <%= link_to "Show this preponent", preponent %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New preponent", new_preponent_path %>
