@@ -30,10 +30,20 @@ class PreponentsController < ApplicationController
     @counts = @salary_report.map { |report| report[:count] }
   end
 
+  def update_salary_only
+    preponent = Preponent.find(params[:id])
+
+    new_salary = params[:salary].to_f
+
+    UpdateSalaryJob.perform_later(preponent.id, new_salary)
+
+    redirect_to preponent, notice: 'Salary update was successfully started.'
+  end
+
   def index
     @total_pages = Preponent.count / 5
     @page = params[:page].to_i || 1
-    @preponents = Preponent.page(@page)
+    @preponents = Preponent.order(:id).page(@page)
   end
 
   def show; end
@@ -83,7 +93,10 @@ class PreponentsController < ApplicationController
   private
 
   def set_preponent
+    puts 'Setting preponent'
+    puts params[:id]
     @preponent = Preponent.find(params[:id])
+    puts @preponent
   end
 
   def preponent_params

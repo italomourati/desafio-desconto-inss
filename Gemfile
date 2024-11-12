@@ -15,6 +15,8 @@ gem 'tzinfo-data', platforms: %i[windows jruby]
 gem 'kaminari'
 gem 'bootstrap', '~> 5.0'
 gem 'sassc-rails'
+gem 'sidekiq'
+gem 'redis'
 
 group :development, :test do
   gem 'faker'

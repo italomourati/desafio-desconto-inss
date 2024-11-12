@@ -96,3 +96,16 @@
     <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<% if preponent.persisted? %>
+  <%= form_with url: preponent_update_salary_only_path(preponent_id: preponent.id), method: :patch, local: true, class: "form-inline" do |form| %>
+    <div class="form-group mb-2">
+      <%= form.label :salary, "Novo Salário", class: "sr-only" %>
+      <%= form.number_field :salary, value: preponent.salary, step: 0.01, class: "form-control", placeholder: "Digite o novo salário" %>
+    </div>
+
+    <%= form.hidden_field :id, value: preponent.id %>
+
+    <button type="submit" class="btn btn-primary mb-2">Atualizar Salário</button>
+  <% end %>
+<% end %>
