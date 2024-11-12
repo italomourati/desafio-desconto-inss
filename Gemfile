@@ -12,8 +12,11 @@ gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[windows jruby]
+gem 'kaminari'
 
 group :development, :test do
+  gem 'faker'
+  gem 'cpf_faker'
   gem 'debug', platforms: %i[mri windows]
 end
 
