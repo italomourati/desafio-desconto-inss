@@ -13,6 +13,8 @@ gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[windows jruby]
 gem 'kaminari'
+gem 'bootstrap', '~> 5.0'
+gem 'sassc-rails'
 
 group :development, :test do
   gem 'faker'

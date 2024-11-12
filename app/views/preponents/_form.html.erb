@@ -1,8 +1,7 @@
 <%= form_with(model: preponent, data: { controller: "calculate-inss" }) do |form| %>
   <% if preponent.errors.any? %>
-    <div style="color: red">
+    <div class="alert alert-danger">
       <h2><%= pluralize(preponent.errors.count, "error") %> prohibited this preponent from being saved:</h2>
-
       <ul>
         <% preponent.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,75 +10,89 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <%= form.label :name, class: "form-label" %>
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <%= form.label :cpf, class: "form-label" %>
+      <%= form.text_field :cpf, class: "form-control" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :cpf, style: "display: block" %>
-    <%= form.text_field :cpf %>
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <%= form.label :birth_date, class: "form-label" %>
+      <%= form.date_field :birth_date, class: "form-control" %>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <%= form.label :address, class: "form-label" %>
+      <%= form.text_field :address, class: "form-control" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :birth_date, style: "display: block" %>
-    <%= form.date_field :birth_date %>
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <%= form.label :number, class: "form-label" %>
+      <%= form.text_field :number, class: "form-control" %>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <%= form.label :neighborhood, class: "form-label" %>
+      <%= form.text_field :neighborhood, class: "form-control" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :address, style: "display: block" %>
-    <%= form.text_field :address %>
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <%= form.label :city, class: "form-label" %>
+      <%= form.text_field :city, class: "form-control" %>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <%= form.label :state, class: "form-label" %>
+      <%= form.text_field :state, class: "form-control" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :number, style: "display: block" %>
-    <%= form.text_field :number %>
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <%= form.label :postal_code, class: "form-label" %>
+      <%= form.text_field :postal_code, class: "form-control" %>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <%= form.label :personal_phone, class: "form-label" %>
+      <%= form.text_field :personal_phone, class: "form-control" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :neighborhood, style: "display: block" %>
-    <%= form.text_field :neighborhood %>
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <%= form.label :reference_phone, class: "form-label" %>
+      <%= form.text_field :reference_phone, class: "form-control" %>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <%= form.label :salary, class: "form-label" %>
+      <%= form.text_field :salary, data: {
+          calculate_inss_target: "salary",
+          action: "input->calculate-inss#calculate"
+        }, class: "form-control" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :city, style: "display: block" %>
-    <%= form.text_field :city %>
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <%= form.label :inss_discount, class: "form-label" %>
+      <%= form.text_field :inss_discount, readonly: true, data: { calculate_inss_target: "inssDiscount" }, class: "form-control" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :state, style: "display: block" %>
-    <%= form.text_field :state %>
-  </div>
-
-  <div>
-    <%= form.label :postal_code, style: "display: block" %>
-    <%= form.text_field :postal_code %>
-  </div>
-
-  <div>
-    <%= form.label :personal_phone, style: "display: block" %>
-    <%= form.text_field :personal_phone %>
-  </div>
-
-  <div>
-    <%= form.label :reference_phone, style: "display: block" %>
-    <%= form.text_field :reference_phone %>
-  </div>
-
-  <div>
-    <%= form.label :salary, style: "display: block" %>
-    <%= form.text_field :salary, data: {
-        calculate_inss_target: "salary",
-        action: "input->calculate-inss#calculate"
-      } %>
-  </div>
-
-  <div>
-    <%= form.label :inss_discount, style: "display: block" %>
-    <%= form.text_field :inss_discount, readonly: true, data: { calculate_inss_target: "inssDiscount" } %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+  <div class="mb-3">
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

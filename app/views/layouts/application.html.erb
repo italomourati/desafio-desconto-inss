@@ -8,9 +8,16 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="d-flex">
+      <%= render 'layouts/shared/sidebar' %>
+
+      <div class="flex-grow-1 p-3 bg-dark text-white">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

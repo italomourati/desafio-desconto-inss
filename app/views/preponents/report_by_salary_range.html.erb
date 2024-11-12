@@ -1,0 +1,50 @@
+<h1>Relatório de Proponentes por Faixa Salarial</h1>
+
+<div class="chart-container">
+  <canvas id="salaryChart"></canvas>
+</div>
+
+<table class="table table-striped table-bordered table-hover table-dark">
+  <thead>
+    <tr>
+      <th>Faixa Salarial</th>
+      <th>Quantidade de Proponentes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @salary_report.each do |report| %>
+      <tr>
+        <td><%= report[:range] %></td>
+        <td><%= report[:count] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<script>
+  const labels = <%= raw @labels.to_json %>;
+  const counts = <%= raw @counts.to_json %>;
+
+  const ctx = document.getElementById('salaryChart').getContext('2d');
+  const salaryChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Quantidade de Proponentes',
+        data: counts,
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>

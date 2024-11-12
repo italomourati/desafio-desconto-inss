@@ -1,0 +1,28 @@
+<div class="bg-dark text-white border-right" style="width: 250px; height: 100vh;">
+  <div class="p-3">
+    <h4>Desconto INSS</h4>
+    <hr class="bg-white">
+    <ul class="nav flex-column">
+      <!-- Home Link com Ícone -->
+      <li class="nav-item">
+        <%= link_to preponents_path(page: 1), class: "nav-link text-white" do %>
+          <i class="fas fa-home"></i> Funcionários
+        <% end %>
+      </li>
+
+      <!-- About Link com Ícone -->
+      <li class="nav-item">
+        <%= link_to new_preponent_path, class: "nav-link text-white" do %>
+          <i class="fas fa-info-circle"></i> Novo Funcionário
+        <% end %>
+      </li>
+
+      <!-- Contact Link com Ícone -->
+      <li class="nav-item">
+        <%= link_to report_by_salary_range_preponents_path, class: "nav-link text-white", data: { turbo: false } do %>
+          <i class="fas fa-envelope"></i> Relatorios
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>

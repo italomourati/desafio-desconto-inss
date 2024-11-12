@@ -3,7 +3,7 @@
 require 'faker'
 require 'cpf_faker'
 
-10.times do
+20.times do
   salary = rand(1000..10_000)
 
   Preponent.create!(

@@ -11,8 +11,29 @@ class PreponentsController < ApplicationController
     render json: { inss_discount: }
   end
 
+  def report_by_salary_range
+    salary_ranges = [
+      { name: 'Até R$ 1.045,00', min: 0, max: 1045 },
+      { name: 'De R$ 1.045,01 a R$ 2.089,60', min: 1045.01, max: 2089.60 },
+      { name: 'De R$ 2.089,61 a R$ 3.134,40', min: 2089.61, max: 3134.40 },
+      { name: 'De R$ 3.134,41 a R$ 6.101,06', min: 3134.41, max: 6101.06 }
+    ]
+
+    @salary_report = salary_ranges.map do |range|
+      {
+        range: range[:name],
+        count: Preponent.where(salary: range[:min]..range[:max]).count
+      }
+    end
+
+    @labels = @salary_report.map { |report| report[:range] }
+    @counts = @salary_report.map { |report| report[:count] }
+  end
+
   def index
-    @preponents = Preponent.all
+    @total_pages = Preponent.count / 5
+    @page = params[:page].to_i || 1
+    @preponents = Preponent.page(@page)
   end
 
   def show; end
