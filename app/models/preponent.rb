@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Preponent < ApplicationRecord
+  validates :name, :cpf, :birth_date, :address, :number, :neighborhood, :city, :state, :postal_code,
+            :personal_phone, :reference_phone, :salary, :inss_discount, presence: true
+
   def self.calculate_inss_discount(salary)
     faixas = [
       { limite: 1045.00, aliquota: 0.075 },

@@ -1,10 +1,11 @@
-<p style="color: green"><%= notice %></p>
+<h1>Detalhe do Funcionário</h1>
 
 <%= render @preponent %>
 
-<div>
-  <%= link_to "Edit this preponent", edit_preponent_path(@preponent) %> |
-  <%= link_to "Back to preponents", preponents_path %>
-
-  <%= button_to "Destroy this preponent", @preponent, method: :delete %>
+<div class="btn-group mt-3" role="group" aria-label="Ações do Funcionário">
+  <%= link_to "Voltar para Funcionários", preponents_path, class: "btn btn-secondary btn-sm" %>
+  <%= link_to "Editar Funcionário", edit_preponent_path(@preponent), class: "btn btn-warning btn-sm" %>
+  <%= button_to "Excluir Funcionário", @preponent, method: :delete, class: "btn btn-danger btn-sm", data: { confirm: "Você tem certeza que deseja excluir este funcionário?" } %>
 </div>
+
+

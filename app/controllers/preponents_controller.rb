@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class PreponentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_preponent, only: %i[show edit update destroy]
 
   def calculate_inss

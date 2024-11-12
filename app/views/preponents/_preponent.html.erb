@@ -1,67 +1,62 @@
-<div id="<%= dom_id preponent %>">
-  <p>
-    <strong>Name:</strong>
-    <%= preponent.name %>
-  </p>
+<div id="<%= dom_id preponent %>" class="container mt-4">
+  <div class="row">
+    <div class="col-md-6">
+      <p><strong>Nome:</strong> <%= preponent.name %></p>
+    </div>
+    <div class="col-md-6">
+      <p><strong>CPF:</strong> <%= preponent.cpf %></p>
+    </div>
+  </div>
 
-  <p>
-    <strong>Cpf:</strong>
-    <%= preponent.cpf %>
-  </p>
+  <div class="row">
+    <div class="col-md-6">
+      <p><strong>Data de Nascimento:</strong> <%= preponent.birth_date %></p>
+    </div>
+    <div class="col-md-6">
+      <p><strong>Endereço:</strong> <%= preponent.address %></p>
+    </div>
+  </div>
 
-  <p>
-    <strong>Birth date:</strong>
-    <%= preponent.birth_date %>
-  </p>
+  <div class="row">
+    <div class="col-md-6">
+      <p><strong>Número:</strong> <%= preponent.number %></p>
+    </div>
+    <div class="col-md-6">
+      <p><strong>Bairro:</strong> <%= preponent.neighborhood %></p>
+    </div>
+  </div>
 
-  <p>
-    <strong>Address:</strong>
-    <%= preponent.address %>
-  </p>
+  <div class="row">
+    <div class="col-md-6">
+      <p><strong>Cidade:</strong> <%= preponent.city %></p>
+    </div>
+    <div class="col-md-6">
+      <p><strong>Estado:</strong> <%= preponent.state %></p>
+    </div>
+  </div>
 
-  <p>
-    <strong>Number:</strong>
-    <%= preponent.number %>
-  </p>
+  <div class="row">
+    <div class="col-md-6">
+      <p><strong>Código Postal:</strong> <%= preponent.postal_code %></p>
+    </div>
+    <div class="col-md-6">
+      <p><strong>Telefone Pessoal:</strong> <%= preponent.personal_phone %></p>
+    </div>
+  </div>
 
-  <p>
-    <strong>Neighborhood:</strong>
-    <%= preponent.neighborhood %>
-  </p>
+  <div class="row">
+    <div class="col-md-6">
+      <p><strong>Telefone de Referência:</strong> <%= preponent.reference_phone %></p>
+    </div>
+    <div class="col-md-6">
+      <p><strong>Salário:</strong> <%= number_to_currency(preponent.salary, precision: 2, locale: "pt-BR") %></p>
+    </div>
+  </div>
 
-  <p>
-    <strong>City:</strong>
-    <%= preponent.city %>
-  </p>
-
-  <p>
-    <strong>State:</strong>
-    <%= preponent.state %>
-  </p>
-
-  <p>
-    <strong>Postal code:</strong>
-    <%= preponent.postal_code %>
-  </p>
-
-  <p>
-    <strong>Personal phone:</strong>
-    <%= preponent.personal_phone %>
-  </p>
-
-  <p>
-    <strong>Reference phone:</strong>
-    <%= preponent.reference_phone %>
-  </p>
-
-  <p>
-    <strong>Salary:</strong>
-    <%= preponent.salary %>
-  </p>
-
-  <p>
-    <strong>Inss discount:</strong>
-    <%= preponent.inss_discount %>
-  </p>
+  <div class="row">
+    <div class="col-md-6">
+      <p><strong>Desconto INSS:</strong> <%= number_to_currency(preponent.inss_discount, precision: 2, locale: "pt-BR") %></p>
+    </div>
+  </div>
 
 </div>

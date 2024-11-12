@@ -12,10 +12,24 @@
   </head>
 
   <body>
-    <div class="d-flex">
-      <%= render 'layouts/shared/sidebar' %>
+    <div class="d-flex bg-dark">
+      <% if user_signed_in? %>
+        <%= render 'layouts/shared/sidebar' %>
+      <% end %>
 
       <div class="flex-grow-1 p-3 bg-dark text-white">
+        <% if notice %>
+          <div class="alert alert-success" role="alert">
+            <%= notice %>
+          </div>
+        <% end %>
+
+        <% if alert %>
+          <div class="alert alert-danger" role="alert">
+            <%= alert %>
+          </div>
+        <% end %>
+
         <%= yield %>
       </div>
     </div>

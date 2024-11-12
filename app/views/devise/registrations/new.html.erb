@@ -1,0 +1,35 @@
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+  <div class="row w-100">
+    <div class="col-md-4 mx-auto">
+      <h2 class="text-center text-white">Sign up</h2>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: "p-4 bg-dark rounded shadow-lg") do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class="mb-3">
+          <%= f.label :email, class: "form-label text-white" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control bg-dark text-white border-secondary" %>
+        </div>
+
+        <div class="mb-3">
+          <%= f.label :password, class: "form-label text-white" %>
+          <% if @minimum_password_length %>
+            <em class="text-muted">(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-control bg-dark text-white border-secondary" %>
+        </div>
+
+        <div class="mb-3">
+          <%= f.label :password_confirmation, class: "form-label text-white" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control bg-dark text-white border-secondary" %>
+        </div>
+
+        <div class="mb-3 text-center">
+          <%= f.submit "Criar Conta", class: "btn btn-success w-100" %>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>

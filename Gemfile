@@ -17,6 +17,7 @@ gem 'bootstrap', '~> 5.0'
 gem 'sassc-rails'
 gem 'sidekiq'
 gem 'redis'
+gem 'devise'
 
 group :development, :test do
   gem 'faker'
