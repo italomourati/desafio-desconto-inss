@@ -1,4 +1,4 @@
-<%= form_with(model: preponent) do |form| %>
+<%= form_with(model: preponent, data: { controller: "calculate-inss" }) do |form| %>
   <% if preponent.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(preponent.errors.count, "error") %> prohibited this preponent from being saved:</h2>
@@ -68,12 +68,15 @@
 
   <div>
     <%= form.label :salary, style: "display: block" %>
-    <%= form.text_field :salary %>
+    <%= form.text_field :salary, data: {
+        calculate_inss_target: "salary",
+        action: "input->calculate-inss#calculate"
+      } %>
   </div>
 
   <div>
     <%= form.label :inss_discount, style: "display: block" %>
-    <%= form.text_field :inss_discount %>
+    <%= form.text_field :inss_discount, readonly: true, data: { calculate_inss_target: "inssDiscount" } %>
   </div>
 
   <div>

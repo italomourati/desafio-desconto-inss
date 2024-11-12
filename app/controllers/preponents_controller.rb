@@ -3,6 +3,14 @@
 class PreponentsController < ApplicationController
   before_action :set_preponent, only: %i[show edit update destroy]
 
+  def calculate_inss
+    salary = params[:salary].to_f
+
+    inss_discount = Preponent.calculate_inss_discount(salary)
+
+    render json: { inss_discount: }
+  end
+
   def index
     @preponents = Preponent.all
   end
