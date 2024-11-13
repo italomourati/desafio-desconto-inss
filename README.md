@@ -117,12 +117,12 @@ bundle exec rubocop
 
 ## Considerações Finais
 
-Este projeto foi desenvolvido com foco em boas práticas de desenvolvimento em Rails, implementando um sistema de cálculo progressivo de INSS e uma funcionalidade de relatório com gráficos. Utilizamos o Sidekiq para o processamento de tarefas em segundo plano, e o RSpec para testes unitários, garantindo a qualidade do código. Também foi implementado o Capybara para testes de interface. Para a interação dinâmica no frontend, utilizamos o Stimulus para calcular o INSS e atualizar o valor em tempo real, proporcionando uma experiência mais fluida ao usuário. Além disso, o Request.js foi utilizado para otimizar e ajustar as requisições, garantindo uma comunicação eficiente entre o frontend e o backend.
+Este projeto foi desenvolvido com foco em boas práticas de desenvolvimento em Rails, implementando um sistema de cálculo progressivo de INSS e uma funcionalidade de relatório com gráficos. Utilizamos o Sidekiq para o processamento de tarefas em segundo plano, e o RSpec para testes unitários, garantindo a qualidade do código. Também foi implementado o Capybara para testes de interface. Para a interação dinâmica no frontend, utilizamos o Stimulus para calcular o INSS e atualizar o valor em tempo real, proporcionando uma experiência mais fluida ao usuário. Além disso, o [**Request.js**](https://github.com/rails/request.js) foi utilizado para otimizar e ajustar as requisições, garantindo uma comunicação eficiente entre o frontend e o backend.
 
 Durante o desenvolvimento, percebi alguns pontos de melhoria para projetos futuros:
 
-- Paginação: Em vez de utilizar o Kaminari, recomendaria o uso do Pagy, que apresenta um desempenho superior e é mais leve, especialmente em aplicações com grande volume de dados.
-- Arquitetura de Frontend: Para tornar a interface mais modular e reutilizável, sugeriria a adoção do conceito de componentes, utilizando ferramentas como o Phlex ou o ViewComponents. Esses frameworks proporcionam uma maneira mais eficiente e escalável de organizar as views.
-- Design Customizado: Para um design mais flexível e com total controle sobre o estilo, recomendaria o uso do Tailwind CSS em vez do Bootstrap. O Tailwind oferece uma abordagem utilitária que permite um design totalmente customizado, além de ser mais leve e eficiente para personalização.
+- **Paginação**: Em vez de utilizar o Kaminari, recomendaria o uso do Pagy, que apresenta um desempenho superior e é mais leve, especialmente em aplicações com grande volume de dados.
+- **Arquitetura de Frontend**: Para tornar a interface mais modular e reutilizável, sugeriria a adoção do conceito de componentes, utilizando ferramentas como o Phlex ou o ViewComponents. Esses frameworks proporcionam uma maneira mais eficiente e escalável de organizar as views.
+- **Design Customizado**: Para um design mais flexível e com total controle sobre o estilo, recomendaria o uso do Tailwind CSS em vez do Bootstrap. O Tailwind oferece uma abordagem utilitária que permite um design totalmente customizado, além de ser mais leve e eficiente para personalização.
 
 Essas melhorias podem proporcionar uma maior performance, escalabilidade e flexibilidade ao projeto, mantendo a consistência e a modularidade ao longo do desenvolvimento.
