@@ -97,11 +97,11 @@
   </div>
 <% end %>
 
-</br><hr class="bg-white"></br>
-
-<h2>Atualizar Salário</h2></br>
-
 <% if preponent.persisted? %>
+  </br><hr class="bg-white"></br>
+
+  <h2>Atualizar Salário</h2></br>
+
   <%= form_with url: preponent_update_salary_only_path(preponent_id: preponent.id), method: :patch, local: true, class: "form-inline" do |form| %>
     <div class="col-md-4 mb-3">
       <%= form.label :salary, "Salário Atual", class: "form-label" %></br>

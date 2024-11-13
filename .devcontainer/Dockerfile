@@ -15,5 +15,3 @@ ADD . /docker/app
 ARG DEFAULT_PORT 3000
 
 EXPOSE ${DEFAULT_PORT}
-
-CMD [ "bundle","exec", "puma", "config.ru"] # CMD ["rails","server"] # you can also write like this.

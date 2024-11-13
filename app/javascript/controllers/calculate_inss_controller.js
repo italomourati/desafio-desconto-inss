@@ -28,13 +28,4 @@ export default class extends Controller {
         console.error('Error:', error)
       })
   }
-
-  connect() {
-    console.log("Connected!")
-
-    if (this.salaryTarget) {
-      this.salaryTarget.addEventListener('input', this.calculate.bind(this))
-    }
-  }
-
 }

@@ -44,7 +44,7 @@ class PreponentsController < ApplicationController
   def index
     @total_pages = Preponent.count / 5
     @page = params[:page].to_i || 1
-    @preponents = Preponent.order(:id).page(@page)
+    @preponents = Preponent.order(:name).page(@page)
   end
 
   def show; end
