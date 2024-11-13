@@ -19,6 +19,7 @@ gem 'sidekiq'
 gem 'redis'
 gem 'devise'
 gem 'requestjs-rails'
+gem 'font-awesome-sass'
 
 group :development, :test do
   gem 'faker'

@@ -14,6 +14,7 @@ Uma aplicação em Rails para cálculo progressivo de desconto do INSS com lista
 - **Rubocop-rails**: Para linting e boas práticas de Rails
 - **RSpec**: Para testes unitários e de integração
 - **capybara**: Para testes interface
+- **requestjs**: Encapsula a lógica para enviar por padrão alguns cabeçalhos que são necessários para aplicativos Rails como o X-CSRF-Token.
 
 ## Funcionalidades
 
@@ -44,41 +45,48 @@ Uma aplicação em Rails para cálculo progressivo de desconto do INSS com lista
 2. Construa e inicie os containers:
 
   ```bash
-  docker-compose up --build
+  docker compose -f ./.devcontainer/docker-compose.yml up --build
   ```
 
 3. Execute as migrations e seeds:
 
   ```bash
-  docker-compose run rails_app rails db:create db:migrate db:seed
+  docker-compose -f ./.devcontainer/docker-compose.yml run rails_app rails db:create db:migrate db:seed
   ```
 
 4. Acesse a aplicação em `http://localhost:3000`.
 
 ### Sem Docker
 
-1. Instale as dependências do projeto:
+1. Clone o repositório e acesse o diretório:
+
+  ```bash
+  git clone [URL do repositório]
+  cd nome_do_projeto
+  ```
+
+2. Instale as dependências do projeto:
 
   ```bash
   bundle install
   ```
 
-2. Crie o arquivo `.env` baseado no `.env.example` e configure as variáveis de ambiente.
+3. Crie o arquivo `.env` baseado no `.env.example` e configure as variáveis de ambiente.
 
-3. Execute as migrations e seeds:
+4. Execute as migrations e seeds:
 
   ```bash
   docker-compose run rails_app rails db:create db:migrate db:seed
   ```
 
-4. Inicie o Redis e o Sidekiq para os jobs em background:
+5. Inicie o Redis e o Sidekiq para os jobs em background:
 
   ```bash
   redis-server
   bundle exec sidekiq
   ```
 
-5. Inicie o servidor Rails:
+6. Inicie o servidor Rails:
 
   ```bash
   bin/rails s
@@ -109,9 +117,7 @@ bundle exec rubocop
 
 ## Considerações Finais
 
-Este projeto foi desenvolvido com foco em boas práticas de desenvolvimento em Rails, implementando um sistema de cálculo progressivo de INSS e uma funcionalidade de relatório com gráficos. Utilizamos o Sidekiq para o processamento de tarefas em segundo plano, e o RSpec para testes unitários, garantindo a qualidade do código. Também foi implementado o Capybara para testes de interface.
-
-Para a interação dinâmica no frontend, utilizamos o Stimulus para calcular o INSS e atualizar o valor em tempo real, proporcionando uma experiência mais fluida ao usuário.
+Este projeto foi desenvolvido com foco em boas práticas de desenvolvimento em Rails, implementando um sistema de cálculo progressivo de INSS e uma funcionalidade de relatório com gráficos. Utilizamos o Sidekiq para o processamento de tarefas em segundo plano, e o RSpec para testes unitários, garantindo a qualidade do código. Também foi implementado o Capybara para testes de interface. Para a interação dinâmica no frontend, utilizamos o Stimulus para calcular o INSS e atualizar o valor em tempo real, proporcionando uma experiência mais fluida ao usuário. Além disso, o Request.js foi utilizado para otimizar e ajustar as requisições, garantindo uma comunicação eficiente entre o frontend e o backend.
 
 Durante o desenvolvimento, percebi alguns pontos de melhoria para projetos futuros:
 

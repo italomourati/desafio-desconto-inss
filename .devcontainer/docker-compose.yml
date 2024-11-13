@@ -44,6 +44,12 @@ services:
       dockerfile: .devcontainer/Dockerfile
     command: bundle exec sidekiq
     environment:
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+      RAILS_ENV: development
+      RAILS_MAX_THREADS: 5
       REDIS_URL: redis://redis:6379/0
     volumes:
       - sidekiq-data:/data

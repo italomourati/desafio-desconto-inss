@@ -3,7 +3,7 @@
 <%= render @preponent %>
 
 <div class="btn-group mt-3" role="group" aria-label="Ações do Funcionário">
-  <%= link_to "Voltar para Funcionários", preponents_path, class: "btn btn-secondary btn-sm" %>
+  <%= link_to "Voltar para Funcionários", preponents_path(page: 1), class: "btn btn-secondary btn-sm" %>
   <%= link_to "Editar Funcionário", edit_preponent_path(@preponent), class: "btn btn-warning btn-sm" %>
   <%= button_to "Excluir Funcionário", @preponent, method: :delete, class: "btn btn-danger btn-sm", data: { confirm: "Você tem certeza que deseja excluir este funcionário?" } %>
 </div>

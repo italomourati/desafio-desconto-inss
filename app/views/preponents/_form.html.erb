@@ -79,7 +79,7 @@
     <div class="row">
       <div class="col-md-6 mb-3">
         <label class="form-label">Salário</label>
-        <%= form.number_field :salary, data: {
+        <%= form.number_field :salary, step: "0.01", data: {
             calculate_inss_target: "salary",
             action: "input->calculate-inss#calculate"
           }, class: "form-control bg-dark text-white border-secondary", required: true %>

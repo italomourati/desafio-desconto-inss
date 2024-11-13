@@ -1,4 +1,4 @@
-<div class="bg-dark text-white border-right" style="width: 250px; height: 100vh;">
+<div class="bg-dark text-white border-right" style="width: 260px; height: 100vh;">
   <div class="p-3">
     <h4>Desconto INSS</h4>
     <hr class="bg-white">
@@ -6,25 +6,28 @@
 
       <li class="nav-item">
         <%= link_to preponents_path(page: 1), class: "nav-link text-white" do %>
-          <i class="fas fa-home"></i> Funcionários
+          <i class="fas fa-home me-1"></i> Funcionários
         <% end %>
       </li>
 
       <li class="nav-item">
         <%= link_to new_preponent_path, class: "nav-link text-white" do %>
-          <i class="fas fa-info-circle"></i> Novo Funcionário
+          <i class="fas fa-info-circle me-1"></i> Novo Funcionário
         <% end %>
       </li>
 
       <li class="nav-item">
         <%= link_to report_by_salary_range_preponents_path, class: "nav-link text-white", data: { turbo: false } do %>
-          <i class="fas fa-envelope"></i> Relatorios
+          <i class="fas fa-envelope me-1"></i> Relatorios
         <% end %>
       </li>
 
       <li class="nav-item">
-        <%= button_to "Sair", destroy_user_session_path, method: :delete, class: "nav-link text-white" %>
+        <%= button_to destroy_user_session_path, method: :delete, class: "nav-link text-white d-flex align-items-center" do %>
+          <i class="fas fa-sign-out-alt me-2"></i> Sair
+        <% end %>
       </li>
+
     </ul>
   </div>
 </div>

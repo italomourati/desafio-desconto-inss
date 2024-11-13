@@ -1,9 +1,78 @@
 pt-BR:
-  number:
-    currency:
-      format:
-        unit: "R$ "
-        format: "%u%n"
-        delimiter: "."
-        separator: ","
-        precision: 2
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "O e-mail não pode ficar em branco"
+              invalid: "O e-mail não é válido"
+            password:
+              blank: "A senha não pode ficar em branco"
+              too_short: "A senha é muito curta (mínimo de %{count} caracteres)"
+              confirmation: "A confirmação da senha não corresponde"
+            password_confirmation:
+              blank: "A confirmação da senha não pode ficar em branco"
+            remember_me:
+              invalid: "O campo Lembrar-me é inválido"
+      messages:
+        blank: "não pode ficar em branco"
+        invalid: "não é válido"
+        too_short: "é muito curto (mínimo de %{count} caracteres)"
+        confirmation: "não corresponde"
+        taken: "já foi registrado"
+        already_taken: "já foi registrado"
+        wrong_length: "deve ter %{count} caracteres"
+  devise:
+    sessions:
+      signed_in: "Você entrou com sucesso."
+      signed_out: "Você saiu com sucesso."
+      already_signed_in: "Você já está logado."
+    registrations:
+      signed_up: "Bem-vindo! Sua conta foi criada com sucesso."
+      updated: "As informações da sua conta foram atualizadas com sucesso."
+      destroyed: "Sua conta foi excluída com sucesso."
+      user: "Usuário"
+    passwords:
+      send_instructions: "Instruções para redefinir sua senha foram enviadas para o seu e-mail."
+      updated: "Sua senha foi alterada com sucesso."
+    confirmations:
+      confirmed: "Sua conta foi confirmada com sucesso."
+      send_instructions: "Instruções de confirmação foram enviadas para o seu e-mail."
+      not_found: "Não foi possível encontrar o código de confirmação fornecido."
+    failure:
+      already_authenticated: "Você já está logado."
+      inactive: "Sua conta ainda não foi ativada."
+      invalid: "%{authentication_keys} ou senha inválida."
+      locked: "Sua conta está bloqueada."
+      last_attempt: "Você tem mais uma tentativa antes de bloquear sua conta."
+      not_found_in_database: "%{authentication_keys} ou senha inválida."
+      timeout: "Sua sessão expirou, por favor, efetue login novamente para continuar."
+      unauthenticated: "Para continuar, efetue login ou registre-se."
+      unconfirmed: "Antes de continuar, confirme a sua conta."
+  errors:
+    messages:
+      blank: "não pode ficar em branco"
+      invalid: "não é válido"
+      too_short: "é muito curto (mínimo de %{count} caracteres)"
+      confirmation: "não corresponde"
+      taken: "já foi registrado"
+      already_taken: "já foi registrado"
+      wrong_length: "deve ter %{count} caracteres"
+      already_confirmed: "já foi confirmado"
+      confirmation_period_expired: "precisa ser confirmada em até %{period}, por favor, solicite uma nova"
+      expired: "expirou, por favor, solicite uma nova"
+      not_found: "não encontrado"
+      not_locked: "não foi bloqueado"
+      not_saved:
+        one: "Não foi possível salvar %{resource}: 1 erro"
+        other: "Não foi possível salvar %{resource}: %{count} erros."
+    models:
+      user:
+        attributes:
+          email:
+            invalid: "O e-mail não é válido"
+          password:
+            too_short: "A senha deve ter no mínimo %{count} caracteres"
+          password_confirmation:
+            confirmation: "A confirmação da senha não corresponde"

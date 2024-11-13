@@ -38,11 +38,11 @@ class PreponentsController < ApplicationController
 
     UpdateSalaryJob.perform_later(preponent.id, new_salary)
 
-    redirect_to preponent, notice: 'Salary update was successfully started.'
+    redirect_to preponent, notice: 'Salário atualizado com sucesso'
   end
 
   def index
-    @total_pages = Preponent.count / 5
+    @total_pages = (Preponent.count / 5.0).ceil
     @page = params[:page].to_i || 1
     @preponents = Preponent.order(:name).page(@page)
   end
@@ -61,7 +61,7 @@ class PreponentsController < ApplicationController
 
     respond_to do |format|
       if @preponent.save
-        format.html { redirect_to @preponent, notice: 'Preponent was successfully created.' }
+        format.html { redirect_to preponents_path(page: 1), notice: 'Funcionário criado com sucesso.' }
         format.json { render :show, status: :created, location: @preponent }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -73,7 +73,7 @@ class PreponentsController < ApplicationController
   def update
     respond_to do |format|
       if @preponent.update(preponent_params)
-        format.html { redirect_to @preponent, notice: 'Preponent was successfully updated.' }
+        format.html { redirect_to preponents_path(page: 1), notice: 'Funcionário atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @preponent }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -86,7 +86,9 @@ class PreponentsController < ApplicationController
     @preponent.destroy!
 
     respond_to do |format|
-      format.html { redirect_to preponents_path, status: :see_other, notice: 'Preponent was successfully destroyed.' }
+      format.html do
+        redirect_to preponents_path(page: 1), status: :see_other, notice: 'Funcionário removido com sucesso.'
+      end
       format.json { head :no_content }
     end
   end
