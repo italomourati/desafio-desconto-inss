@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Preponent, type: :model do
@@ -38,13 +40,15 @@ RSpec.describe Preponent, type: :model do
 
     it 'calculates the correct discount for salary 4000' do
       salary = 4000.00
-      expected_discount = (1045.00 * 0.075) + ((2089.60 - 1045.00) * 0.09) + ((3134.40 - 2089.60) * 0.12) + ((4000 - 3134.40) * 0.14)
+      expected_discount = (1045.00 * 0.075) + ((2089.60 - 1045.00) * 0.09) +
+                          ((3134.40 - 2089.60) * 0.12) + ((4000 - 3134.40) * 0.14)
       expect(Preponent.calculate_inss_discount(salary)).to eq(expected_discount)
     end
 
     it 'calculates the correct discount for salary 5000' do
       salary = 5000.00
-      expected_discount = (1045.00 * 0.075) + ((2089.60 - 1045.00) * 0.09) + ((3134.40 - 2089.60) * 0.12) + ((5000 - 3134.40) * 0.14)
+      expected_discount = (1045.00 * 0.075) + ((2089.60 - 1045.00) * 0.09) +
+                          ((3134.40 - 2089.60) * 0.12) + ((5000 - 3134.40) * 0.14)
       expect(Preponent.calculate_inss_discount(salary)).to eq(expected_discount)
     end
   end

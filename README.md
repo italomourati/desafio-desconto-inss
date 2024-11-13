@@ -13,6 +13,7 @@ Uma aplicação em Rails para cálculo progressivo de desconto do INSS com lista
 - **Kaminari**: Paginação de dados
 - **Rubocop-rails**: Para linting e boas práticas de Rails
 - **RSpec**: Para testes unitários e de integração
+- **capybara**: Para testes interface
 
 ## Funcionalidades
 
@@ -108,7 +109,7 @@ bundle exec rubocop
 
 ## Considerações Finais
 
-Este projeto foi desenvolvido com foco em boas práticas de desenvolvimento em Rails, implementando um sistema de cálculo progressivo de INSS e uma funcionalidade de relatório com gráficos. Utilizamos o Sidekiq para o processamento de tarefas em segundo plano, e o RSpec para testes unitários, garantindo a qualidade do código. Também foi implementado o Strade para testes de interface.
+Este projeto foi desenvolvido com foco em boas práticas de desenvolvimento em Rails, implementando um sistema de cálculo progressivo de INSS e uma funcionalidade de relatório com gráficos. Utilizamos o Sidekiq para o processamento de tarefas em segundo plano, e o RSpec para testes unitários, garantindo a qualidade do código. Também foi implementado o Capybara para testes de interface.
 
 Para a interação dinâmica no frontend, utilizamos o Stimulus para calcular o INSS e atualizar o valor em tempo real, proporcionando uma experiência mais fluida ao usuário.
 

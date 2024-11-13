@@ -18,6 +18,7 @@ gem 'sassc-rails'
 gem 'sidekiq'
 gem 'redis'
 gem 'devise'
+gem 'requestjs-rails'
 
 group :development, :test do
   gem 'faker'

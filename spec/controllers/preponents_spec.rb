@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe PreponentsController, type: :controller do
@@ -14,7 +16,7 @@ RSpec.describe PreponentsController, type: :controller do
       get :calculate_inss, params: { salary: }
       expected_discount = Preponent.calculate_inss_discount(salary)
       expect(response).to have_http_status(:ok)
-      expect(JSON.parse(response.body)['inss_discount']).to eq(expected_discount)
+      expect(response.parsed_body['inss_discount']).to eq(expected_discount)
     end
   end
 
