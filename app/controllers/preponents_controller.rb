@@ -34,7 +34,17 @@ class PreponentsController < ApplicationController
   def update_salary_only
     preponent = Preponent.find(params[:id])
 
+    if preponent.nil?
+      redirect_to preponents_path, alert: 'Preponente não encontrado'
+      return
+    end
+
     new_salary = params[:salary].to_f
+
+    if new_salary <= 0
+      redirect_to preponent, alert: 'O salário informado não é válido'
+      return
+    end
 
     UpdateSalaryJob.perform_later(preponent.id, new_salary)
 

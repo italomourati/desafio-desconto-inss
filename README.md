@@ -76,7 +76,7 @@ Uma aplicação em Rails para cálculo progressivo de desconto do INSS com lista
 4. Execute as migrations e seeds:
 
   ```bash
-  docker-compose run rails_app rails db:create db:migrate db:seed
+  rails db:create db:migrate db:seed
   ```
 
 5. Inicie o Redis e o Sidekiq para os jobs em background:
