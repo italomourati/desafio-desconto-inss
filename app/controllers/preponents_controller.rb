@@ -48,7 +48,7 @@ class PreponentsController < ApplicationController
 
     UpdateSalaryJob.perform_later(preponent.id, new_salary)
 
-    redirect_to preponent, notice: 'Salário atualizado com sucesso'
+    redirect_to preponents_path(page: 1), notice: 'Salário atualizado com sucesso'
   end
 
   def index

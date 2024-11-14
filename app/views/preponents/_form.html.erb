@@ -102,18 +102,36 @@
 
   <h2>Atualizar Salário</h2></br>
 
-  <%= form_with url: preponent_update_salary_only_path(preponent_id: preponent.id), method: :patch, local: true, class: "form-inline" do |form| %>
-    <div class="col-md-4 mb-3">
-      <%= form.label :salary, "Salário Atual", class: "form-label" %></br>
-      <h3><%= number_to_currency(preponent.salary, precision: 2, locale: "pt-BR") %></h3>
+  <%= form_with url: preponent_update_salary_only_path(preponent_id: preponent.id), method: :patch, local: true, class: "form-inline", data: { controller: "calculate-inss" } do |form| %>
+    <div class="row">
+      <div class="col-md-3 mb-3">
+        <%= form.label :salary, "Salário Atual", class: "form-label" %></br>
+        <h3><%= number_to_currency(preponent.salary, precision: 2, locale: "pt-BR") %></h3>
+      </div>
+
+      <div class="col-md-3 mb-3">
+        <%= form.label :salary, "Desconto INSS Atual", class: "form-label" %></br>
+        <h3><%= number_to_currency(preponent.inss_discount, precision: 2, locale: "pt-BR") %></h3>
+      </div>
     </div>
 
-    <div class="col-md-4 mb-3">
-      <%= form.label :salary, "Novo Salário", class: "form-label" %>
-      <%= form.number_field :salary, value: preponent.salary, step: 0.01, class: "form-control bg-dark text-white border-secondary", placeholder: "Digite o novo salário" %>
+    <div class="row">
+      <div class="col-md-3 mb-3">
+        <%= form.label :salary, "Novo Salário", class: "form-label" %>
+        <%= form.number_field :salary, step: "0.01", data: {
+              calculate_inss_target: "salary",
+              action: "input->calculate-inss#calculate"
+            }, class: "form-control bg-dark text-white border-secondary", placeholder: "Digite o novo salário" %>
+      </div>
+
+      <div class="col-md-3 mb-3">
+        <label class="form-label">Desconto INSS</label>
+        <%= form.number_field :inss_discount, readonly: true, data: { calculate_inss_target: "inssDiscount" }, class: "form-control bg-dark text-white border-secondary" %>
+      </div>
     </div>
 
-    <div class="col-md-4 mb-3 d-flex flex-column justify-content-end">
+
+    <div class="col-md-6 mb-3 d-flex flex-column justify-content-end">
       <button type="submit" class="btn btn-success">Atualizar Salário</button>
     </div>
 

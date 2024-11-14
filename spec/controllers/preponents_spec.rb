@@ -31,7 +31,7 @@ RSpec.describe PreponentsController, type: :controller do
   describe 'PATCH #update_salary_only' do
     it 'updates the salary of the preponent' do
       patch :update_salary_only, params: { id: preponent.id, preponent_id: preponent.id, salary: 3500.00 }
-      expect(response).to redirect_to(preponent)
+      expect(response).to redirect_to(preponents_path(page: 1))
       expect(flash[:notice]).to eq('Salário atualizado com sucesso')
     end
   end
