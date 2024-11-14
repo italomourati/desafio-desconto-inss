@@ -13,10 +13,10 @@ RSpec.describe 'User Authentication', type: :system, js: true do
     fill_in 'user_password', with: user.password
     click_button 'Entrar'
 
-    expect(page).to have_content('Signed in successfully.')
+    expect(page).to have_content('Você entrou com sucesso.')
 
     click_button 'Sair'
 
-    expect(page).to have_content('You need to sign in or sign up before continuing.')
+    expect(page).to have_content('Para continuar, efetue login ou registre-se.')
   end
 end

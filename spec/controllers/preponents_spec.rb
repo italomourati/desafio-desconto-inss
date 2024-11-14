@@ -32,7 +32,7 @@ RSpec.describe PreponentsController, type: :controller do
     it 'updates the salary of the preponent' do
       patch :update_salary_only, params: { id: preponent.id, preponent_id: preponent.id, salary: 3500.00 }
       expect(response).to redirect_to(preponent)
-      expect(flash[:notice]).to eq('Salary update was successfully started.')
+      expect(flash[:notice]).to eq('Salário atualizado com sucesso')
     end
   end
 
@@ -52,8 +52,8 @@ RSpec.describe PreponentsController, type: :controller do
         expect do
           post :create, params: valid_params
         end.to change(Preponent, :count).by(1)
-        expect(response).to redirect_to(assigns(:preponent))
-        expect(flash[:notice]).to eq('Preponent was successfully created.')
+        expect(response).to redirect_to(preponents_path(page: 1))
+        expect(flash[:notice]).to eq('Funcionário criado com sucesso.')
       end
     end
 
@@ -77,7 +77,7 @@ RSpec.describe PreponentsController, type: :controller do
         patch :update, params: valid_params
         preponent.reload
         expect(preponent.name).to eq('Updated Name')
-        expect(response).to redirect_to(preponent)
+        expect(response).to redirect_to(preponents_path(page: 1))
       end
     end
 
@@ -99,8 +99,8 @@ RSpec.describe PreponentsController, type: :controller do
       expect do
         delete :destroy, params: { id: preponent_to_delete.id }
       end.to change(Preponent, :count).by(-1)
-      expect(response).to redirect_to(preponents_path)
-      expect(flash[:notice]).to eq('Preponent was successfully destroyed.')
+      expect(response).to redirect_to(preponents_path(page: 1))
+      expect(flash[:notice]).to eq('Funcionário removido com sucesso.')
     end
   end
 end

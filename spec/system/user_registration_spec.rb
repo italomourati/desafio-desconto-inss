@@ -12,6 +12,6 @@ RSpec.describe 'User Registration', type: :system, js: true do
     fill_in 'user_password_confirmation', with: 'password'
     click_button 'Criar Conta'
 
-    expect(page).to have_content('Welcome! You have signed up successfully.')
+    expect(page).to have_content('Bem-vindo! Sua conta foi criada com sucesso.')
   end
 end
